@@ -12,7 +12,7 @@ def read_data(url):
 	"Accept-Language": "zh-CN,zh;q=0.9",
 	"Cache-Control": "max-age=0",
 	"Connection": "keep-alive",
-	"Cookie": "__zlcmid=vNihhuCokD1F4C; _ga=GA1.2.2078080502.1583388741; DMS-tags-session=mURmU6QQ8eGD3IMq4OFCepba6kQ0EVNThU8rOrv1A4Ss8BN7yaZIWDH5dMtL0GBen0yi3EMpKkIr7lkRIhGb5LoKDzBBPgb5yDPTV/Q4gFnCUc+eT8Alm0AVZChT5atHeOQvCmDZr1Bc1fhLueqHFeX463xQok5KiRkDOhXpjeezuZr32lhfV5C14NyuULTpeiFdbK7sd1MX8xPEM18v7q0TuydXQxHr",
+	"Cookie": "cookie信息",
 	"Host": "dms-tags.jcdecaux.com",
 	"Sec-Fetch-Dest": "document",
 	"Sec-Fetch-Mode": "navigate",
@@ -79,7 +79,7 @@ def v1_data_to_mysql():
 	#print(playerlist)
 	#print(len(playerlist))
 	#连接数据库将列表内容存入MySQL
-	conn = pymysql.connect(host='10.179.245.222',port=3306,user='STD-MO',passwd='STdg123!',db='BAB')
+	conn = pymysql.connect(host='1',port=,user='',passwd='',db='')
 	cur = conn.cursor()	
 	cur.execute("""truncate table test""")
 	conn.commit()
@@ -87,7 +87,7 @@ def v1_data_to_mysql():
 	conn.close()
 	for l in range(0,len(playerlist)):
 		#print(playerlist[l]['computer_model'])
-		conn = pymysql.connect(host='10.179.245.222',port=3306,user='STD-MO',passwd='STdg123!',db='BAB')
+		conn = pymysql.connect(host='',port=,user='',passwd='',db='')
 		cur = conn.cursor()
 		query = "insert into test(MAC,platform_version,bs_player_version,computer_manufacturer,os_platform,computer_model,project_code_platform,config_display_manager,storage_type,config_daily_poweroff,graphic_adapter,config_smartsync_smartcontent,bios_version,bsplayer_infra) values ('{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}')"
 		MAC = check_key('MAC',playerlist[l])
@@ -129,7 +129,7 @@ def v2_data_to_mysql(list_players):
 	"Accept-Language": "zh-CN,zh;q=0.9",
 	"Cache-Control": "max-age=0",
 	"Connection": "keep-alive",
-	"Cookie": "__zlcmid=vNihhuCokD1F4C; _ga=GA1.2.2078080502.1583388741",
+	"Cookie": "cookie信息",
 	"Host": "push.monitoring-dms.jcdecaux.com",
 	"Sec-Fetch-Dest": "document",
 	"Sec-Fetch-Mode": "navigate",
@@ -140,7 +140,7 @@ def v2_data_to_mysql(list_players):
 	}	
 	v2_ssion = requests.session()
 	v2_data = v2_ssion.get(v2_url % list_players,headers=v2_headers,verify=False).json()
-	conn = pymysql.connect(host='10.179.245.222',port=3306,user='STD-MO',passwd='STdg123!',db='BAB')
+	conn = pymysql.connect(host='',port=,user='',passwd='',db='')
 	cur = conn.cursor()
 	query = "update test set Hostname='{}',IP='{}',last_update='{}' where MAC='{}';"
 	try:
