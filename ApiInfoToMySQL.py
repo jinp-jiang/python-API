@@ -12,7 +12,7 @@ def read_data(url):
 	"Accept-Language": "zh-CN,zh;q=0.9",
 	"Cache-Control": "max-age=0",
 	"Connection": "keep-alive",
-	"Cookie": "cookie信息",
+	"Cookie": "DMS-tags-session=FH9nnIgdumgx67rFChJIRp8f/VzvZz6XcG+tbd8hHUCCC3VTi+O0U/I1Ogv9M9cvi2Ile/S+6FS+bR3Ge4BF4aLfVGlz/meRDu9IjsfdPwjAIM4nTTWzL+mc11QqHaOQDZLVTkzQ8MlUMohCYo6l0R73MToBBwsg720+cLVDo86wh157m9DOtJ1CPAjNefWlGMDFzxmJB5zi8jSFgIyVWyx9yTEF2oxl",
 	"Host": "dms-tags.jcdecaux.com",
 	"Sec-Fetch-Dest": "document",
 	"Sec-Fetch-Mode": "navigate",
